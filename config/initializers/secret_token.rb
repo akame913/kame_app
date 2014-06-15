@@ -9,4 +9,20 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-KameApp::Application.config.secret_key_base = '53c01df4a4f897079bb0f13fcd285bd40e1f82803c6f4e2d0b5afeb71cabcebdf5b5e4654bc9b7514e5487b64b31e7dbe31a034b273c1591a12accd91b3c36dd'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+KameApp::Application.config.secret_key_base = secure_token
+
