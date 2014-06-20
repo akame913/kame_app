@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 KameApp::Application.routes.draw do
+  get "products/new"
   resources :users do
     member do
       get :following, :followers
