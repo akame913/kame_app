@@ -1,0 +1,6 @@
+<% provide(:title, @product.title) %>
+<div class="row" >
+  <%= image_tag(@product.image_url) %>
+  <h2><%= @product.title %></h2>
+  <%= sanitize(@product.description) %>
+</div>
