@@ -18,8 +18,8 @@ FactoryGirl.define do
   end
   
   factory :product do
-    sequence(:title)  { |n| "Title #{n}" }
+    sequence(:title)       { |n| "Title #{n}" }
     sequence(:description) { |n| "Product_#{n} description"} 
-    sequence(:image_url) { |n| "image_#{n}.gif"}
+    sequence(:image_url)   { |n| "image_#{n}.gif"}
   end    
 end

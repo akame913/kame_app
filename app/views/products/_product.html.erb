@@ -1,0 +1,11 @@
+<div class="products">
+  <%= image_tag(product.image_url) %>
+  <h3>
+    <%= link_to product.title, product %>
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to "delete", product, method: :delete,
+                                 data: { confirm: "You sure?" } %>
+    <% end %>
+  </h3>
+  <p><%= product.description %></p>
+</div>

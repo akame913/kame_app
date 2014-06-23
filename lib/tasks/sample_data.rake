@@ -4,6 +4,7 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_products
   end
 end
 
@@ -39,5 +40,16 @@ def make_relationships
   followers      = users[3..40]
   followed_users.each { |followed| user.follow!(followed) }
   followers.each      { |follower| follower.follow!(user) }
+end
+
+def make_products
+  29.times do |n|
+    title  = "Product Title No.#{n+1}"
+    description = Faker::Lorem.sentence(30)
+    image_url = "DSC01162_#{n+1}.gif"
+    Product.create!(title:       title,
+                 description: description,
+                 image_url:   image_url)
+  end
 end
 
