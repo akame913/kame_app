@@ -62,4 +62,16 @@ describe "Static pages" do
     it { should have_content('Contact') }
     it { should have_title(full_title('Contact')) }
   end
+
+  describe "News page" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
+      FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+      visit news_path
+    end
+
+    it { should have_content('News') }
+    it { should have_title(full_title('News')) }
+  end
 end

@@ -16,4 +16,9 @@ class StaticPagesController < ApplicationController
   
   def contact
   end
+
+  def news
+    @user = User.first
+    @microposts = @user.microposts.paginate(page: params[:page], per_page: 10)
+  end
 end
