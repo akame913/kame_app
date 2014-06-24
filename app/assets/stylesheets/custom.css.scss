@@ -270,6 +270,12 @@ aside {
     color: #227;
   }
 
+  .description {
+    margin-left: 400px;
+    margin-top: 0.5em; 
+    margin-bottom: 0.8em; 
+  }
+  
   p, div.price_line {
     margin-left: 400px;
     margin-top: 0.5em; 
@@ -279,6 +285,7 @@ aside {
       display: inline;
     }
   }
+
   .price {
     color: #44a;
     font-weight: bold;
