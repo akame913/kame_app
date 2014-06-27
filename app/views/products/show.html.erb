@@ -4,11 +4,12 @@
   <%= image_tag(@product.image_url) %>
   <h3><%= @product.title %></h3>
   <!-- <%= @product.description %> -->
-  <%= sanitize(@product.description) %>
+  <!-- <%= sanitize(@product.description) %> -->
+  <%= markdown(@product.description) %>
   <p>
     <% if signed_in? && current_user.admin? %>
       <%= link_to "Edit", edit_product_path(@product) %>
-    <% end %>
+  <% end %>
   </p>
  </div>
 </div>
