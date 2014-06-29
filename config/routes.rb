@@ -1,7 +1,11 @@
 # encoding: utf-8
 
 KameApp::Application.routes.draw do
+#  get "pictures/new"
 #  get "products/new"
+  resources :pictures do
+    get :download
+  end
   resources :products
   resources :users do
     member do

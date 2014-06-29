@@ -22,4 +22,11 @@ FactoryGirl.define do
     sequence(:description) { |n| "Product_#{n} description"} 
     sequence(:image_url)   { |n| "image_#{n}.gif"}
   end    
+
+  factory :picture do
+    sequence(:comment)      { |n| "comment #{n}" }
+    sequence(:name)         { |n| "Picture_#{n}.name"} 
+    sequence(:data)         { |n| "ByteData_#{n}"}
+    sequence(:content_type) { |n| "image_#{n}.gif"}
+  end    
 end

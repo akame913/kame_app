@@ -1,0 +1,21 @@
+<% provide(:title, 'Upload picture') %>
+<h1>Upload picture</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@picture, 
+                url: {action: 'create'}, 
+                html: {multipart: true}) do |f| %>
+
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.label :comment %>      
+      <%= f.text_area :comment, rows: 6 %>
+
+      <%= f.label :uploaded_picture %>
+      <%= f.file_field :uploaded_picture %>
+
+      <%= f.submit "Upload file", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

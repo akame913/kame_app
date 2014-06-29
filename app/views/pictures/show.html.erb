@@ -1,0 +1,5 @@
+<% provide(:title, @picture.name) %>
+<h1><%= @picture.name %></h1>
+
+<h3><%= @picture.comment %></h3>
+<img src="<%= picture_download_path(@picture) %>"/>
