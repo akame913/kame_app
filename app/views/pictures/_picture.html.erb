@@ -1,0 +1,13 @@
+<div class="pictures">
+  <img src="<%= picture_download_path(picture) %>"/>
+  <h3>
+    <%= link_to picture.name, picture %>
+    <% if signed_in? && current_user.admin? %>
+      <%= link_to "delete", picture, method: :delete,
+                                 data: { confirm: "You sure?" } %>
+    <% end %>
+  </h3>
+  <div class="comment">
+    <%= sanitize(picture.comment) %>
+  </div>
+</div>

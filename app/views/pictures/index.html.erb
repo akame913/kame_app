@@ -1,0 +1,8 @@
+<% provide(:title, 'All pictures') %>
+<h1>All pictures</h1>
+
+<%= will_paginate %>
+  <div class="row">
+    <%= render @pictures %>
+  </div>
+<%= will_paginate %>
