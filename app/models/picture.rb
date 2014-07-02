@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 class Picture < ActiveRecord::Base
+  acts_as_taggable # acts_as_taggable_on :tags のエイリアス
   validates :comment, presence: true
   validates_format_of :content_type, 
                       with: /\Aimage/,

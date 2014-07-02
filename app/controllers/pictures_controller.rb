@@ -5,7 +5,11 @@ class PicturesController < ApplicationController
   before_action :admin_user,     only: [:new, :edit, :update, :destroy]
   
   def index
-    @pictures = Picture.paginate(page: params[:page], per_page: 10)
+    if params[:tag]
+      @pictures = Picture.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 10)
+    else
+      @pictures = Picture.paginate(page: params[:page], per_page: 10)
+    end
   end
   
   def new
@@ -53,11 +57,11 @@ class PicturesController < ApplicationController
     flash[:success] = "Picture destroyed."
     redirect_to pictures_url
   end
-        
+          
   private
     # Never trust parameters from the scary internet, only allow the white
     # list through.
     def picture_params
-      params.require(:picture).permit(:comment, :uploaded_picture)
+      params.require(:picture).permit(:comment, :uploaded_picture, :tag_list)
     end
 end

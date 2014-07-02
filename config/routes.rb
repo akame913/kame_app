@@ -3,8 +3,13 @@
 KameApp::Application.routes.draw do
 #  get "pictures/new"
 #  get "products/new"
+  get 'tags/:tag', to: 'pictures#index', as: :tag
+  
   resources :pictures do
     get :download
+    #collection do
+    #  get 'tag/:tag_name'
+    #end
   end
   resources :products
   resources :users do

@@ -6,6 +6,9 @@
     <%= form_for(@picture) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
+      <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+      <%= f.text_field :tag_list %>
+  
       <%= f.label :comment %>
       <%= f.text_area :comment, rows: 6 %>
 

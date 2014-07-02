@@ -1,6 +1,10 @@
 <% provide(:title, 'All pictures') %>
 <h1>All pictures</h1>
-
+<div id="tag_cloud">
+  <% tag_cloud Picture.tag_counts_on(:tags).order('count DESC'), %w{css1 css2 css3 css4} do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
 <%= will_paginate %>
   <div class="row">
     <%= render @pictures %>
