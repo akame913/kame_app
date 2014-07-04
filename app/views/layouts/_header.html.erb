@@ -5,7 +5,8 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Home",     root_path %></li>
-          <li><%= link_to "Product",  products_path %></li>
+          <!-- <li><%= link_to "Product",  products_path %></li> -->
+          <!-- <li><%= link_to "Product",  'tags/product' %></li> -->
           <li><%= link_to "Picture",  pictures_path %></li>
           <li><%= link_to "Help",     help_path %></li>
           <li><%= link_to "News",     news_path %></li>
@@ -19,7 +20,7 @@
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <% if current_user.admin? %>
-                  <li><%= link_to "New product", new_product_path %></li>
+                  <!-- <li><%= link_to "New product", new_product_path %></li> -->
                   <li><%= link_to "New picture", new_picture_path %></li>
                 <% end %>
                 <li class="divider"></li>

@@ -127,10 +127,11 @@ describe "Picture Pages" do
       let(:new_comment)  { "New comment" }
       before do
         fill_in "Comment",  with: new_comment
+        attach_file "Uploaded picture", "#{Rails.root}/spec/test-image.gif"
         click_button "Save changes"
       end
 
-      it { should have_title(picture.name) }
+      it { should have_title('test-image.gif') }
       it { should have_selector('div.alert.alert-success') }
       specify { expect(picture.reload.comment).to  eq new_comment }
     end
